@@ -1,7 +1,6 @@
 #pragma once
 
 #include "value.h"
-#include <windows.h>
 
 
 class CCore

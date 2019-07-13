@@ -3,6 +3,9 @@
 #include <iostream>
 #include <time.h>
 #include <string.h>
+#include <windows.h>
+#include <list> // 랜덤엑세스는 제공하지 않는다.  
+#include "Flag.h"
 
 using namespace std;
 

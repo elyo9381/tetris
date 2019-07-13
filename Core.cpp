@@ -1,16 +1,18 @@
 #include "Core.h"
 #include "StageManager.h"
+#include "ShapeManager.h"
 
 CCore* CCore::m_pInst=NULL;
 
 
 CCore::CCore()
 {
-//	SetConsoleCursorPosition
+	srand((unsigned int)time(0));
 }
 
 CCore::~CCore()
 {
+	CShapeManager::DestroyInst();
 	CStageManager::DestroyInst();
 }
 
@@ -30,14 +32,22 @@ bool CCore::Init()
 
 void CCore::Run()
 {
-	CStageManager::GetInst()->Run();
+	while(true)
+	{
+		system("cls");
+		CShapeManager::GetInst()->Update();
+		
+		CStageManager::GetInst()->Run();
+		CShapeManager::GetInst()->Render();
+		
+		Sleep(100);
+	}
 	
-	SetConsolePos(2,3);
-	cout<< "Test"<<endl;	
+	
 }
 
 void CCore::SetConsolePos(int x, int y)
 {
-	COORD	pos ={x *+2,y};
+	COORD	pos ={(x+1)*2,y};
 	SetConsoleCursorPosition(m_hConsole, pos);
 }

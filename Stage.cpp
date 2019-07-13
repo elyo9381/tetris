@@ -1,9 +1,9 @@
 #include "Stage.h"
 
 
-CStage::CStage()
-{
-	
+CStage::CStage():
+	m_iSpeed(10)
+{	
 }
 CStage::~CStage()
 {
